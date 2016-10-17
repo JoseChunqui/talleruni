@@ -4,10 +4,11 @@
 	<title>Ingrediente/SandwichPlus</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	{{ HTML::script('css/bootstrap.min.css'); }}
-	{{ HTML::script('css/mainActualizar.css'); }}
-	{{ HTML::script('js/jquery-3.1.0.min.js'); }}
-	{{ HTML::script('js/bootstrap.min.js'); }}
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/mainActualizar.css">
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
