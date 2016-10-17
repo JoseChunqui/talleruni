@@ -21,6 +21,16 @@ Route::get('/inicio', function () {
 Route::get('login', function () {
     return view('login');
 });
+Route::get('actualizarProducto', function () {
+    return view('actualizarProducto');
+});
+
+Route::get('actualizarCombo', function () {
+    return view('actualizarCombo');
+});
+Route::get('actualizarIngrediente', function () {
+    return view('actualizarIngrediente');
+});
 
 Route::get('revisarVentas', function () {
     $ordenesCompra = OrdenCompra::join('clientes','orden_compras.id_cliente','=','clientes.id')->join('distritos','clientes.id_distrito','=','distritos.id')->select('orden_compras.id','orden_compras.fechaPedido','distritos.nombreDistrito','orden_compras.estadoOrden')->get();

@@ -24,7 +24,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-xs-4" for="contrasegnaCuenta">Contrasegna:</label>
+                  <label class="col-xs-4" for="contrasegnaCuenta">Contraseña:</label>
                   <div class="col-xs-8">
                     <input type="contrasegnaCuenta" class="form-control" id="contrasegnaCuenta" placeholder="Contrasegna Cuenta">
                   </div>

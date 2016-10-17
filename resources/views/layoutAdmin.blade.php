@@ -2,6 +2,7 @@
 	<head>
 		<meta charset=”utf-8”>
 		<title>@yield('titulo','Administración')</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		{!! Html::style('css/bootstrap.min.css') !!}
 		{!! Html::style('css/mainActualizar.css')!!}
 		{!!	Html::script('js/jquery-3.1.0.min.js')!!}
@@ -30,9 +31,9 @@
 			    	<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 			    DATA
 			    	<ul class="dropdown-menu">
-			    	 	<li><a href="actualizarIngrediente.html">INGREDIENTES</a></li>
-				  	  <li><a href="#">PRODUCTOS</a></li>
-				  	  <li><a href="actualizarCombo.html">COMBOS</a></li>
+			    	 	<li><a href="actualizarIngrediente">INGREDIENTES</a></li>
+				  	  <li><a href="actualizarProducto">PRODUCTOS</a></li>
+				  	  <li><a href="actualizarCombo">COMBOS</a></li>
 				  	  <li><a href="#">OFERTA</a></li>
 			  		</ul>
 					</li>
