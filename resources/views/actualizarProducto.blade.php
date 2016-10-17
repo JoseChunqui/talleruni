@@ -226,17 +226,17 @@
 
 		      <div class="panel panel-danger">
 		      	<div class="panel-body">
-		      		  <div class="col-xs-10 col-sm-offset-1">
-		        			<div class="input-group">
-										<input type="text" class="form-control" placeholder="Buscar">
-										<div class="input-group-btn">
-											<button type="submit" class="btn btn-default">
-												<span class="glyphicon glyphicon-search"></span>
-											</button>
-										</div>
+		      		<div class="col-xs-10 col-sm-offset-1">
+		        		<div class="input-group">
+							<input type="text" class="form-control" placeholder="Buscar">
+							<div class="input-group-btn">
+								<button type="submit" class="btn btn-default">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</div>
 				
-									</div>
-								</div>
+						</div>
+					</div>
 		      		
 		      	</div>
 		      	<div class="list-group">
