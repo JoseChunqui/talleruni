@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/actualizarIngrediente',function () {
+	return view('actualizarIngrediente');
+});
+
 Route::get('revisarVentas', function () {
     $ordenesCompra = OrdenCompra::join('clientes','orden_compras.id_cliente','=','clientes.id')->join('distritos','clientes.id_distrito','=','distritos.id')->select('orden_compras.id','orden_compras.fechaPedido','distritos.nombreDistrito','orden_compras.estadoOrden')->get();
 
