@@ -1,0 +1,118 @@
+#linea{
+	text-align: left;
+}
+#tabla{
+	border:0.95px solid black;
+	border-radius: 5px;
+	background-color: white;
+	margin-bottom: 15px;
+}
+#bumeran{
+	font-size: 3.5em;
+	text-align: center;
+
+}
+#bum{
+	color:blue;
+}
+#com{
+	color: #15BF34;
+}
+#nube{
+	background-color: white;
+	color: #B2AF28;
+	font-size: 1.2em;
+	border-radius: 10px;
+
+}
+#flecha{
+	margin-top: 20px;
+
+}
+#texto{
+	background-color: black;
+}
+#flechita{
+	background-color: #B2AF28;
+}
+.cabecera{
+	background:-webkit-linear-gradient(top,white,#DADAD6);
+	border-radius: 5px;
+	font-size: 1.2em;
+	font-style: bold;
+	padding-left: 4px;
+}
+#servicio{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+#formu{
+	margin-top: 10px;
+}
+#servicio:hover{
+	background:-webkit-linear-gradient(top,#80B9FD,#4A99F8);
+
+}
+#carga1:hover{
+	color: blue;
+}
+.text{
+	font-size: 0.9em;
+}
+#cuadro{
+	padding-left: 28px;
+}
+#div1{
+	margin-top: 20px;
+	
+}
+#div2{
+	margin-top: 20px;
+}
+section{
+	background-color: #DBDBD8;
+}
+#face{
+	background-color: #0E3D75;
+	width: 188px;
+}
+#areas{
+	font-style: bold;
+	font-size: 1.2em;
+}
+#areas:hover{
+	color: blue;
+}
+#ver{
+	font-size: 0.9em;
+}
+.contenido{
+	font-size: 1.2em;
+	padding-left: 10px;
+	padding-top: 5px;
+	color: #4F8BD3;
+}
+.contenido:hover{
+	color: black;
+}
+#busqueda{
+	margin-top: 10px;
+}
+#centrando{
+	padding-top: 8px;
+	font-size: 1.1em;
+	color: #80B9FD;
+}
+#selec{
+	font-size: 1.4em;
+	font-style: bold;
+	margin-right: 10px;
+}
+#espacio{
+	padding-top: 0px;
+	margin-top: 0px;
+}
+.espacio2{
+	font-size: 1.1em;
+	color:#80B9FD;
+}

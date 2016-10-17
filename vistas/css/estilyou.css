@@ -1,0 +1,171 @@
+header{
+	background-color: blue;
+}
+section{
+	background-color: grey;
+	height: 950px;
+	padding: 0px auto;
+
+}
+aside{
+	background-color: white;
+	
+	height: 1200px;
+}
+nav{
+	background-color: white;
+	height: 100px;
+}
+footer{
+	background-color: purple;
+	float: right;
+	height: 150px;
+}
+#imagen{
+	margin-top: 15px;
+}
+table{
+	background-color: white;
+}
+#alter{
+	margin-top: 15px;
+	text-align: left;
+	background-color: red;
+	border-radius: 0px;
+}
+#hola{
+	color: red;
+}
+#op{
+	padding-top: 15px;
+	font-size: 0.8em;
+	background-color: white;
+	text-align: left;
+	color:black;
+	border-radius: 0px;
+	border:0px white;
+}
+#op:hover{
+	background-color: grey;
+}
+#boton{
+	margin-top: 10px;
+	background-color: blue;
+	border-radius: 0px;
+	color: white;
+}
+#lat{
+	float: right;
+}
+#naveg{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+#boton2{
+	background-color: blue;
+	margin-left: 15px;
+	color: white;
+	height: 26px;
+	font-size: 0.8em;
+	border-radius: 0px;
+}
+
+#boton3{
+	color: black;
+	height: 26px;
+	font-size: 0.8em;
+	border-radius: 0px;
+
+}
+#boton2:hover{
+	background-color: grey;
+}
+#tabla2{
+	height: 45px;
+	padding-bottom: 0px;
+	text-align: center;
+	background-color:white;
+	margin-left: 0px;
+	margin-right: 0px;
+	border:black 4px;
+}
+#div2{
+	margin-top: 12px;
+}
+#boton4{
+	background-color: white;
+	margin-left: 15px;
+	color: black;
+	height: 26px;
+	font-size: 0.8em;
+	border-radius: 0px;
+	font-variant: normal;
+}
+#boton4:hover{
+	font-variant: bold;
+	font-size: 0.81em;
+}
+#videos{
+	background-color: white;
+	height: 900px;
+	margin:15px auto;
+	margin-left: 80px;
+}
+#config{
+	margin-top: 0px;
+	background-color: white;
+	height:280px;
+	width: 300px;
+}
+#tabla3{
+	background-color: white;
+}
+#edit{
+	text-align:left;
+	background-color: white;
+}
+#parra{
+	color:blue;
+	font-size: 1.5em;
+	margin-top: 35px;
+}
+#parra2{
+	color:black;
+	font-size: 0.8em;
+	margin-top: 5px;
+}
+#config2{
+	margin-top: 0px;
+	background-color: white;
+	height:90px;
+	width: 190px;
+	float: left;
+}
+#tabla4{
+	background-color: white;
+	width: 350px;
+	height:280px;
+}
+#prueba{
+	background-color: white;
+}
+#parra3{
+	color:blue;
+	font-size: 1em;
+	margin-top: 12px;
+}
+#parra4{
+	font-size: 0.8em;
+	margin-top: 2px;
+}
+#tabla5{
+	background-color: white;
+	margin-top: 30px;
+}
+#titulo{
+	margin-bottom: 20px;
+	height: 30px;
+}
+#espacios{
+	margin-left: 25px;
+}
