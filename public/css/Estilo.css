@@ -1,0 +1,18 @@
+img.logo{
+    margin-right: 20px;
+}
+header{
+    margin-top: 25px;
+}
+header.div.img{
+    margin-right: 10px;
+}
+nav{
+    margin: 20px;
+}
+article{
+    margin-right: 40px;
+}
+p.justificar{
+    text-align: justify;
+}

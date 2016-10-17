@@ -13,7 +13,13 @@ use App\OrdenCompra;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
+});
+Route::get('/inicio', function () {
+    return view('main');
+});
+Route::get('login', function () {
+    return view('login');
 });
 
 Route::get('revisarVentas', function () {
