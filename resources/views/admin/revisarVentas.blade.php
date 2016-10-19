@@ -1,3 +1,4 @@
+@extends('admin/layoutAdmin')
 @section ('titulo')
 	Revisar Ventas
 @stop	

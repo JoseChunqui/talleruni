@@ -1,6 +1,7 @@
 <?php
 
 use App\OrdenCompra;
+use App\Producto;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,29 +14,43 @@ use App\OrdenCompra;
 */
 
 Route::get('/', function () {
-    return view('main');
+    $productos = Producto::all();
+    return view('main', compact('productos'));
 });
-Route::get('/inicio', function () {
-    return view('main');
-});
+
 Route::get('login', function () {
     return view('login');
 });
-Route::get('actualizarProducto', function () {
-    return view('actualizarProducto');
+Route::get('admin/actualizarProducto', function () {
+    return view('admin/actualizarProducto');
 });
 
-Route::get('actualizarCombo', function () {
-    return view('actualizarCombo');
+Route::get('admin/actualizarCombo', function () {
+    return view('admin/actualizarCombo');
 });
-Route::get('actualizarIngrediente', function () {
-    return view('actualizarIngrediente');
+Route::get('admin/actualizarIngrediente', function () {
+    return view('admin/actualizarIngrediente');
 });
 
-Route::get('revisarVentas', function () {
+
+Route::get('admin/detalleProducto/{id}', 'mainController@mostrarDetallePedido');
+//Procesar Pedidos
+Route::get('admin/procesarPedido/{id}','revisarVentaController@procesarPedido');
+Route::get('admin/rechazarPedido/{id}','revisarVentaController@rechazarPedido');
+Route::get('admin/reprocesarPedido/{id}','revisarVentaController@reprocesarPedido');
+
+Route::get('admin/revisarVentas', function () {
     $ordenesCompra = OrdenCompra::join('clientes','orden_compras.id_cliente','=','clientes.id')->join('distritos','clientes.id_distrito','=','distritos.id')->select('orden_compras.id','orden_compras.fechaPedido','distritos.nombreDistrito','orden_compras.estadoOrden')->get();
 
-    return view('revisarVentas', compact('ordenesCompra'));
+    return view('admin/revisarVentas', compact('ordenesCompra'));
 });
 
-Route::get('detallePedido/{id}','revisarVentaController@mostrarDetallePedido');
+Route::get('admin/detallePedido/{id}','revisarVentaController@mostrarDetallePedido');
+
+
+//Historial de Ventas
+Route::get('admin/revisarHistorial', function(){
+    $ordenesCompra = OrdenCompra::join('clientes','orden_compras.id_cliente','=','clientes.id')->join('distritos','clientes.id_distrito','=','distritos.id')->select('orden_compras.id','orden_compras.fechaPedido','distritos.nombreDistrito','orden_compras.estadoOrden')->where('orden_compras.estadoOrden','=','procesado')->orWhere('orden_compras.estadoOrden','=','rechazado')->get();	
+	return view('admin/revisarHistorial', compact('ordenesCompra'));
+});
+

@@ -1,6 +1,6 @@
-@extends('layoutAdmin')
+@extends('admin/layoutAdmin')
 @section ('titulo')
-	Revisar Ventas
+	Actualizar Productos
 @stop	
 @section('contenido')
 <div class="container-fluid">
@@ -19,10 +19,10 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-10 col-md-offset-1">
-			<div class="panel panel-success">
+			<div class="panel panel-danger">
 				<nav class="nav navbar-default">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="#">COMBOS</a>
+						<a class="navbar-brand" href="#">PRODUCTOS</a>
 					</div>
 				</nav>
 				<div class="panel-body">
@@ -30,19 +30,19 @@
 						<div class="col-xs-12">
 							<form class="form-horizontal">
 								<div class="form-group">
-									<label class="col-xs-3" for="nombreCombo">Nombre:</label>
+									<label class="col-xs-3" for="nombreProducto">Nombre:</label>
 									<div class="col-xs-9">
-										<p class="form-control-static">Combo1</p>
+										<p class="form-control-static">Producto1</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-3" for="precioCombo">Precio:</label>
+									<label class="col-xs-3" for="precioProducto">Precio:</label>
 									<div class="col-xs-9">
 										<p class="form-control-static">$15</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-3" for="descripcionCombo">Descripcion:</label>
+									<label class="col-xs-3" for="descripcionProducto">Descripcion:</label>
 									<div class="col-xs-9">
 										<p class="form-control-static">
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -51,23 +51,23 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-3" for="estadoCombo">Estado:</label>
+									<label class="col-xs-3" for="estadoProducto">Estado:</label>
 									<div class="col-xs-9">
 										<p class="form-control-static">BuenoxD</p>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-xs-6 col-xs-offset-3">
-											<img src="img/sandwich.jpg" alt="ComboX" class="img-responsive">						
+											<img src="img/sandwich.jpg" alt="ProductoX" class="img-responsive">						
 									</div>												
 								</div>
 								<div class="form-group">
 									<div class="col-sm-offset-3">
 										<div class="btn-toolbar">
-											<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalModificar">
+											<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalModificar">
 											  Modificar
 											</button>
-											<button class="btn btn-success">Eliminar</button>
+											<button class="btn btn-danger">Eliminar</button>
 										</div>
 									</div>
 								</div>
@@ -86,11 +86,11 @@
 						</div>
 
 						<div class="row">
-							<div class="panel panel-success">
+							<div class="panel panel-danger">
 								<div class="panel-heading">
 									<div class="row">
 										<div class="col-xs-12">
-											PRODUCTOS
+											INGREDIENTES
 										</div>
 									</div>
 								</div>
@@ -98,10 +98,10 @@
 				      		<div class="list-group-item">
 				      			<div class="row">
 				      				<div class="col-xs-10">
-				      					<a href="actualizarProducto.html">Producto1</a>
+				      					<a href="actualizarIngrediente.html">Ingrediente1</a>
 				      				</div>
 				      				<div class="col-xs-2">
-				      					<button class="btn btn-success">
+				      					<button class="btn btn-danger">
 											  	<span class="glyphicon glyphicon-remove"></span>
 				      					</button>
 				      				</div>
@@ -110,10 +110,10 @@
 				      		<div class="list-group-item">
 				      			<div class="row">
 				      				<div class="col-xs-10">
-				      					<a href="actualizarProducto.html">Producto2</a>
+				      					<a href="actualizarIngrediente.html">Ingrediente2</a>
 				      				</div>
 				      				<div class="col-xs-2">
-				      					<button class="btn btn-success">
+				      					<button class="btn btn-danger">
 											  	<span class="glyphicon glyphicon-remove"></span>
 				      					</button>
 				      				</div>
@@ -135,7 +135,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Nuevo Combo</h4>
+        <h4 class="modal-title" id="myModalLabel">Nuevo Producto</h4>
       </div>
       <div class="modal-body">
       	<div class="row">
@@ -143,27 +143,27 @@
       		
 					<form class="form-horizontal">
 						<div class="form-group">
-							<label class="col-xs-3" for="nombreCombo">Nombre:</label>
+							<label class="col-xs-3" for="nombreProducto">Nombre:</label>
 							<div class="col-xs-9">
-								<input type="nombre" class="form-control" id="nombreCombo" placeholder="Nombre">
+								<input type="nombre" class="form-control" id="nombreProducto" placeholder="Nombre">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-xs-3" for="precioCombo">Precio:</label>
+							<label class="col-xs-3" for="precioProducto">Precio:</label>
 							<div class="col-xs-9">
-								<input type="precio" class="form-control" id="precioCombo" placeholder="Precio">
+								<input type="precio" class="form-control" id="precioProducto" placeholder="Precio">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-xs-3" for="descripcionCombo">Descripcion:</label>
+							<label class="col-xs-3" for="descripcionProducto">Descripcion:</label>
 							<div class="col-xs-9">
 								<textarea class="form-control" placeholder="Descripcion" rows="5"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-xs-3" for="estadoCombo">Estado:</label>
+							<label class="col-xs-3" for="estadoProducto">Estado:</label>
 							<div class="col-xs-9">
-								<input type="estado" class="form-control" id="estadoCombo" placeholder="Estado">
+								<input type="estado" class="form-control" id="estadoProducto" placeholder="Estado">
 							</div>
 						</div>
 					</form>
@@ -173,7 +173,7 @@
       <div class="modal-footer">
         <div class="col-xs-10 col-xs-offset-1">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success">Crear</button>
+        <button type="button" class="btn btn-danger">Crear</button>
         </div>
       </div>
     </div>
@@ -185,7 +185,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modificar Combo</h4>
+        <h4 class="modal-title" id="myModalLabel">Modificar Producto</h4>
       </div>
       <div class="modal-body">
       	<div class="row">
@@ -193,27 +193,27 @@
       		
 					<form class="form-horizontal">
 						<div class="form-group">
-							<label class="col-xs-3" for="nombreCombo">Nombre:</label>
+							<label class="col-xs-3" for="nombreProducto">Nombre:</label>
 							<div class="col-xs-9">
-								<input type="nombre" class="form-control" id="nombreCombo" placeholder="Nombre">
+								<input type="nombre" class="form-control" id="nombreProducto" placeholder="Nombre">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-xs-3" for="precioCombo">Precio:</label>
+							<label class="col-xs-3" for="precioProducto">Precio:</label>
 							<div class="col-xs-9">
-								<input type="precio" class="form-control" id="precioCombo" placeholder="Precio">
+								<input type="precio" class="form-control" id="precioProducto" placeholder="Precio">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-xs-3" for="descripcionCombo">Descripcion:</label>
+							<label class="col-xs-3" for="descripcionProducto">Descripcion:</label>
 							<div class="col-xs-9">
 								<textarea class="form-control" placeholder="Descripcion" rows="5"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-xs-3" for="estadoCombo">Estado:</label>
+							<label class="col-xs-3" for="estadoProducto">Estado:</label>
 							<div class="col-xs-9">
-								<input type="estado" class="form-control" id="estadoCombo" placeholder="Estado">
+								<input type="estado" class="form-control" id="estadoProducto" placeholder="Estado">
 							</div>
 						</div>
 					</form>
@@ -223,7 +223,7 @@
       <div class="modal-footer">
       	<div class="col-xs-10 col-xs-offset-1">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success">Guardar Cambios</button>
+        <button type="button" class="btn btn-danger">Guardar Cambios</button>
       	</div>
       </div>
     </div>
@@ -235,13 +235,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Lista Combo</h4>
+        <h4 class="modal-title" id="myModalLabel">Lista Productos</h4>
       </div>
       <div class="modal-body">
       <div class="row">
 	      <div class="col-xs-10 col-xs-offset-1">
 
-		      <div class="panel panel-success">
+		      <div class="panel panel-danger">
 		      	<div class="panel-body">
 		      		  <div class="col-xs-10 col-sm-offset-1">
 		        			<div class="input-group">
@@ -260,10 +260,10 @@
 		      		<div class="list-group-item">
 		      			<div class="row">
 		      				<div class="col-xs-10">
-		      					<a href="actualizarCombo.html">Combo1</a>
+		      					<a href="actualizarProducto.html">Producto1</a>
 		      				</div>
 		      				<div class="col-xs-2">
-		      					<button class="btn btn-success">
+		      					<button class="btn btn-danger">
 									  	<span class="glyphicon glyphicon-remove"></span>
 		      					</button>
 		      				</div>
@@ -272,10 +272,10 @@
 		      		<div class="list-group-item">
 		      			<div class="row">
 		      				<div class="col-xs-10">
-		      					<a href="actualizarCombo.html">Combo2</a>
+		      					<a href="actualizarProducto.html">Producto2</a>
 		      				</div>
 		      				<div class="col-xs-2">
-		      					<button class="btn btn-success">
+		      					<button class="btn btn-danger">
 									  	<span class="glyphicon glyphicon-remove"></span>
 		      					</button>
 		      				</div>
@@ -289,7 +289,7 @@
       <div class="modal-footer">
 	      <div class="col-xs-10 col-xs-offset-1">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-	        <button type="button" class="btn btn-success">Guardar Cambios</button>
+	        <button type="button" class="btn btn-danger">Guardar Cambios</button>
 	      </div>
       </div>
     </div>
@@ -301,13 +301,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Lista Productos</h4>
+        <h4 class="modal-title" id="myModalLabel">Lista Ingredientes</h4>
       </div>
       <div class="modal-body">
       <div class="row">
 	      <div class="col-xs-10 col-xs-offset-1">
 
-		      <div class="panel panel-success">
+		      <div class="panel panel-danger">
 		      	<div class="panel-body">
 		      		  <div class="col-xs-10 col-sm-offset-1">
 		        			<div class="input-group">
@@ -326,10 +326,10 @@
 		      		<div class="list-group-item">
 		      			<div class="row">
 		      				<div class="col-xs-9">
-		      					<a href="#">Producto1</a>
+		      					<a href="#">Ingrediente1</a>
 		      				</div>
 		      				<div class="col-xs-3">
-		      					<button class="btn btn-success">
+		      					<button class="btn btn-danger">
 									  	AGREGAR
 		      					</button>
 		      				</div>
@@ -338,10 +338,10 @@
 		      		<div class="list-group-item">
 		      			<div class="row">
 		      				<div class="col-xs-9">
-		      					<a href="#">Producto2</a>
+		      					<a href="#">Ingrediente2</a>
 		      				</div>
 		      				<div class="col-xs-3">
-		      					<button class="btn btn-success">
+		      					<button class="btn btn-danger">
 									  	AGREGAR
 		      					</button>
 		      				</div>
@@ -356,11 +356,12 @@
       <div class="modal-footer">
 	      <div class="col-xs-10 col-xs-offset-1">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-	        <button type="button" class="btn btn-success">Guardar Cambios</button>
+	        <button type="button" class="btn btn-danger">Guardar Cambios</button>
 	      </div>
       </div>
     </div>
   </div>
 </div>
 </div>
+</body>
 @stop

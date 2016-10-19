@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-xs-offset-3">
                   <button type="button" class="btn btn-default">Olvidaste</button>
-                  <button type="button" class="btn btn-primary" onclick="location.href='revisarVentas';">Ingresar</button>
+                  <button type="button" class="btn btn-primary" onclick="location.href='/admin/revisarVentas';">Ingresar</button>
                 </div>               
               </form>
               </div>

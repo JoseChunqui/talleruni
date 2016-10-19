@@ -1,6 +1,6 @@
-@extends('layoutAdmin')
+@extends('admin/layoutAdmin')
 @section ('titulo')
-	Revisar Ventas
+	Actualizar Ingredientes
 @stop	
 @section('contenido')
 
@@ -70,7 +70,7 @@
 						</form>
 					</div>
 					<div class="col-xs-4">
-						<img src="Imagenes/sandwich.jpg" alt="IngredienteX" class="img-responsive">						
+						{{ Html::image('Imagenes/sandwich.jpg','imagen',array('class'=>'img-responsive'))}}
 					</div>
 						
 				</div>

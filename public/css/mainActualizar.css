@@ -47,3 +47,8 @@ p{font-size: 16px;}
   font-size: 15px;
   letter-spacing: 3px;
 }
+
+.navbar-success{
+  color:#3c763d;
+  background-color: #dff0d8;
+}
