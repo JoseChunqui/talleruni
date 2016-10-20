@@ -1,3 +1,4 @@
+html {width:100%;}
 button.btn btn-primary{
     position: absolute;
     top:5px;
@@ -6,12 +7,21 @@ button.btn btn-primary{
 img.logo{
     margin-right: 20px;
 }
-header{
-    margin-top: 5px;
-    position: relative;
+header {
+    width:100%;
+    background:#f2f2f2;
+    position:relative; 
+    z-index:2;
 }
-header.div.img{
-    margin-right: 10px;
+body {
+    color:#333;
+    min-width:960px;
+    background:#000;
+}
+footer {
+    width: 100%;
+    padding: 23px 0 30px;
+    color: #fff;
 }
 nav{
     margin: 20px;
@@ -22,9 +32,70 @@ article{
 p.justificar{
     text-align: justify;
 }
-body{
-    padding-top: 10px;
-}
 div.a.button{
     margin-right: 10px;
 }
+a{    
+    outline: none;
+}
+a:hover{
+    text-decoration:none;
+}
+
+.header-row-bot {
+    width:100%;
+    background:url(../Imagenes/row-bot-tail.gif) center top repeat-x;
+}
+.header-row-bot-bg {
+    width:100%;
+    min-height:122px;
+    background:url(../Imagenes/row-bot-bg.jpg) center top no-repeat;
+}
+.content {
+    width:100%;
+    padding:15px 0 50px;
+    background:#f2f2f2;
+    position:relative;
+}
+.header-row-top {
+    position:relative;
+    width:100%;
+    height:70px;
+    padding:10px 0;
+    background:#000;
+}
+.jumbotron{
+    margin-top: 20px;
+}
+
+.thumbnail{
+    cursor:pointer;
+}
+
+/*===== MENU =====*/
+.menu {
+    padding:10px 0px 0 0; 
+    float:right;
+    list-style: none;    
+}
+.menu li {
+    float:left;
+    padding-left:30px;
+}
+.menu li a { 
+    font-size:14px; 
+    line-height:30px; 
+    padding:0; 
+    color:#fff;
+    cursor:pointer; 
+}
+.menu > li > a:hover {color:#c52e02;}
+
+#logo-negocio{
+    padding: 8px 0px 0 0; 
+    font-style: italic;
+}
+#logo-negocio a{
+    color:  #7FFFD4;
+    cursor:pointer;
+} 

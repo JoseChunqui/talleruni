@@ -54,3 +54,12 @@ Route::get('admin/revisarHistorial', function(){
 	return view('admin/revisarHistorial', compact('ordenesCompra'));
 });
 
+//productoEspecifico
+Route::get('productoEspecifico',function(){
+    return view('productoEspecifico');
+});
+
+//infoConsumidor
+Route::get('confirmarCompra',function(){
+    return view('confirmarCompra');
+});
