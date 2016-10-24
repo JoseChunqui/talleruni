@@ -1,7 +1,7 @@
 <?php
 
-use App\OrdenCompra;
-use App\Producto;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,53 +13,61 @@ use App\Producto;
 |
 */
 
-Route::get('/', function () {
-    $productos = Producto::all();
-    return view('main', compact('productos'));
+//Módulo de Catalogo de Productos
+Route::get('/','mainController@mostrarProductosCatalogo');
+Route::get('productoEspecifico','mainController@personalizarProducto');
+
+Route::get('realizarCompra',function(){
+    return view('realizarCompra');
 });
 
-Route::get('login', function () {
-    return view('login');
+Route::get('confirmarCompra',function(){
+    return view('confirmarCompra');
 });
-Route::get('admin/actualizarProducto', function () {
+
+//Módulo de Administración -->Admin<--
+Route::group(['prefix'=>'admin', 'middleware'=> 'logeo'],function(){
+    //Verificar Ventas
+    Route::get('revisarVentas','revisarVentaController@mostrarPedidosPendientes');
+
+    //Historial de Ventas
+    Route::get('revisarHistorial','revisarVentaController@mostrarHistorialVentas');
+
+    Route::get('actualizarProducto', function () {
     return view('admin/actualizarProducto');
+    });
+
+    Route::get('actualizarCombo', function () {
+        return view('actualizarCombo');
+    });
+    Route::get('actualizarIngrediente', function () {
+        return view('actualizarIngrediente');
+    });
+    Route::get('balanceVentas',function(){
+        return view('admin/balanceVentas');
+    });
+
+    //Salir del módulo de Administración del negocio
+    Route::get('logout', 'Auth\LoginController@logout');
 });
 
-Route::get('admin/actualizarCombo', function () {
-    return view('admin/actualizarCombo');
-});
-Route::get('admin/actualizarIngrediente', function () {
-    return view('admin/actualizarIngrediente');
-});
-
-
-Route::get('admin/detalleProducto/{id}', 'mainController@mostrarDetallePedido');
 //Procesar Pedidos
 Route::get('admin/procesarPedido/{id}','revisarVentaController@procesarPedido');
 Route::get('admin/rechazarPedido/{id}','revisarVentaController@rechazarPedido');
 Route::get('admin/reprocesarPedido/{id}','revisarVentaController@reprocesarPedido');
 
-Route::get('admin/revisarVentas', function () {
-    $ordenesCompra = OrdenCompra::join('clientes','orden_compras.id_cliente','=','clientes.id')->join('distritos','clientes.id_distrito','=','distritos.id')->select('orden_compras.id','orden_compras.fechaPedido','distritos.nombreDistrito','orden_compras.estadoOrden')->get();
 
-    return view('admin/revisarVentas', compact('ordenesCompra'));
-});
-
+//Recepción de la petición AJAX para mostrar Detalle de Pedido
 Route::get('admin/detallePedido/{id}','revisarVentaController@mostrarDetallePedido');
+//Recepción de la petición AJAX para mostrar Detalle de Producto
+Route::get('admin/detalleProducto/{id}', 'mainController@mostrarDetallePedido');
 
 
-//Historial de Ventas
-Route::get('admin/revisarHistorial', function(){
-    $ordenesCompra = OrdenCompra::join('clientes','orden_compras.id_cliente','=','clientes.id')->join('distritos','clientes.id_distrito','=','distritos.id')->select('orden_compras.id','orden_compras.fechaPedido','distritos.nombreDistrito','orden_compras.estadoOrden')->where('orden_compras.estadoOrden','=','procesado')->orWhere('orden_compras.estadoOrden','=','rechazado')->get();	
-	return view('admin/revisarHistorial', compact('ordenesCompra'));
+Route::group(['middleware'=> 'guest'],function(){
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\LoginController@login');
 });
 
-//productoEspecifico
-Route::get('productoEspecifico',function(){
-    return view('productoEspecifico');
-});
+Route::get('/home', 'HomeController@index');
 
-//infoConsumidor
-Route::get('confirmarCompra',function(){
-    return view('confirmarCompra');
-});
+

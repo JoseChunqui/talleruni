@@ -16,7 +16,6 @@ class CreateTablaPromociones extends Migration
         Schema::create('promociones', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_administrador')->unsigned();
-            $table->integer('id_producto')->unsigned();
             $table->string('nombrePromocion');
             $table->decimal('precionPromocional',10,2);
             $table->dateTime('fechaInicio');
@@ -26,7 +25,6 @@ class CreateTablaPromociones extends Migration
             $table->timestamps();
 
             $table->foreign('id_administrador')->references('id')->on('administradores');
-            $table->foreign('id_producto')->references('id')->on('productos');
         });
     }
 

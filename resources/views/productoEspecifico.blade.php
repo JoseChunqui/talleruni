@@ -3,14 +3,6 @@
   Sandwiches Don Kike
 @stop 
 @section('contenido')
-<div class="container-fluid">
-        <div class="col-sm-3"><nav>
-              <div class="list-group">
-                <a href="#" class="list-group-item">Promociones de Delivery</a>
-                <a href="#" class="list-group-item">Sandwiches</a>
-                <a href="#" class="list-group-item">Combos</a>
-              </div>
-        </nav></div>
         <div class="col-sm-9">
             <article>
                 <table class="table table-bordered">
@@ -151,16 +143,16 @@
           </table>
         <p>Precito total: </p><div class="well well-sm">16</div>
         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-success" data-dismiss="modal">Anadir al carrito</button>  
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar pedido</button>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Anadir al carrito</button>  
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar pedido</button>
 
-                        </div>
+         </div>
                       </div>
 
                     </div>
-  </div>
+            </div>
             </article>
         </div>
-</div>
+
 @stop

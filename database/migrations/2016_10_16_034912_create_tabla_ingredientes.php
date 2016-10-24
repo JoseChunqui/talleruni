@@ -16,6 +16,7 @@ class CreateTablaIngredientes extends Migration
         Schema::create('ingredientes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_administrador')->unsigned();
+            $table->integer('id_promocion')->unsigned()->null();
             $table->string('nombreIngrediente');
             $table->decimal('precionUnitario',10,2);
             $table->string('estado');

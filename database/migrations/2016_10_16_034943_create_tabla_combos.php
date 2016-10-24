@@ -17,6 +17,7 @@ class CreateTablaCombos extends Migration
             $table->increments('id');
             $table->integer('id_administrador')->unsigned();
             $table->string('nombreCombo');
+            $table->decimal('precioCombo',10,2);
             $table->dateTime('fechaInicio');
             $table->dateTime('fechaFin');
             $table->string('estado');

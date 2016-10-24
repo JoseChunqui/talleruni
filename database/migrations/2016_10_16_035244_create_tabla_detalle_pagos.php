@@ -16,9 +16,7 @@ class CreateTablaDetallePagos extends Migration
         Schema::create('detalle_pagos', function (Blueprint $table) {
             $table->integer('id_orden_compra')->unsigned();
             $table->integer('id_forma_pago')->unsigned();
-            $table->integer('id_promocion')->unsigned()->null();
-            $table->decimal('montoTotal',10,2);
-            $table->string('tipoTarjeta');
+            $table->string('tipoTarjeta')->null();
             $table->timestamps();
 
             $table->foreign('id_orden_compra')->references('id')->on('orden_compras');

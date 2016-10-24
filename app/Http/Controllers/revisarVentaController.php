@@ -11,41 +11,97 @@ use App\OrdenCompra;
 
 class revisarVentaController extends Controller
 {
+    /*public function __construct()
+    {
+        $this->middleware('logeo');
+    }*/
+
+    public function mostrarPedidosPendientes(){
+        $ordenesCompra = OrdenCompra::join('clientes','orden_compras.id_cliente','=','clientes.id')
+        ->join('distritos','clientes.id_distrito','=','distritos.id')
+        ->select('orden_compras.id',
+                'orden_compras.fechaPedido',
+                'distritos.nombreDistrito',
+                'orden_compras.estadoOrden')
+        ->where('orden_compras.estadoOrden','=','pendiente')
+        ->get();
+        return view('admin/revisarVentas', compact('ordenesCompra'));
+    }
+
+    public function mostrarHistorialVentas(){
+        $ordenesCompra = OrdenCompra::join('clientes','orden_compras.id_cliente','=','clientes.id')
+            ->join('distritos','clientes.id_distrito','=','distritos.id')
+            ->select('orden_compras.id',
+                    'orden_compras.fechaPedido',
+                    'distritos.nombreDistrito',
+                    'orden_compras.estadoOrden',
+                    'orden_compras.updated_at'
+                    )
+            ->where('orden_compras.estadoOrden','=','procesado')
+            ->orWhere('orden_compras.estadoOrden','=','rechazado')
+            ->get();    
+        return view('admin/revisarHistorial', compact('ordenesCompra'));        
+    }
+
     public function mostrarDetallePedido(Request $request, $id){
     	if($request -> ajax()){
+    		$ordenCompra = OrdenCompra::join('clientes','orden_compras.id_cliente','=','clientes.id')
+            ->join('distritos','clientes.id_distrito','=','distritos.id')
+            ->select('orden_compras.fechaPedido',
+                    'clientes.nombre',
+                    'clientes.apellidos',
+                    'clientes.dni',
+                    'distritos.nombreDistrito',
+                    'clientes.domicilio')
+            ->where('orden_compras.id','=',(int)$id)
+            ->get();
 
-    		//$detalleOrdenCompra =  DetalleOrdenCompra::where('id_orden_compra','=',$id)->get();
-    		$detalleOrdenCompra =  DetalleOrdenCompra::join('orden_compras','detalle_orden_compras.id_orden_compra','=','orden_compras.id')->join('clientes','orden_compras.id_cliente','=','clientes.id')->join('distritos','distritos.id','=','clientes.id_distrito')->select('detalle_orden_compras.id_orden_compra','clientes.nombre','clientes.apellidos','distritos.nombreDistrito','clientes.domicilio','detalle_orden_compras.cantidad')->where('id_orden_compra','=',$id)->get();
-    		$id_orden_compra=$detalleOrdenCompra->pluck("id_orden_compra");
-    		$nombre=$detalleOrdenCompra->pluck("nombre");
-    		$apellidos=$detalleOrdenCompra->pluck("apellidos");
-    		$cantidad=$detalleOrdenCompra->pluck("cantidad");
+            //Productos comprados (Detalle de Orden)
+            $productosComprados = DetalleOrdenCompra::join('productos','detalle_orden_compras.id_producto','=','productos.id')
+            ->select('productos.nombreProducto','productos.id as id_producto','productos.precioUnitario')
+            ->where('detalle_orden_compras.id_orden_compra','=',(int)$id)
+            ->get();
+
+    		$fechaPedido = $ordenCompra->pluck("fechaPedido");
+    		$nombre = $ordenCompra->pluck("nombre");
+    		$apellidos = $ordenCompra->pluck("apellidos");
+    		$dni = $ordenCompra->pluck("dni");
+            $nombreDistrito = $ordenCompra->pluck("nombreDistrito");
+            $domicilio = $ordenCompra->pluck("domicilio");
+
     		return response()->json([
-    			'id_orden_compra'=>$id_orden_compra,
+                'codPedido' => $id,
+                'fechaPedido'=>$fechaPedido,
     			'nombre'=>$nombre,
     			'apellidos'=>$apellidos,
-    			'cantidad'=>$cantidad
+                'dni'=>$dni,
+                'nombreDistrito'=>$nombreDistrito,
+                'domicilio'=>$domicilio,
+                'productosComprados'=>$productosComprados
     			]);
     	}
     }
+
+    //PROCESAR PEDIDOS ---UPDATE---
     public function procesarPedido(Request $request, $id){
         if($request -> ajax()){
-            $ordenCompra = OrdenCompra::where('id','=',(int)$id)->update(['estadoOrden'=>'procesado']);
+            $ordenCompra = OrdenCompra::where('id','=',(int)$id)
+            ->update(['estadoOrden'=>'procesado']);
             return response()->json(['respuesta'=>'procesado']);
         }
     }
     public function rechazarPedido(Request $request, $id){
         if($request -> ajax()){
-            $ordenCompra = OrdenCompra::where('id','=',(int)$id)->update(['estadoOrden'=>'rechazado']);
+            $ordenCompra = OrdenCompra::where('id','=',(int)$id)
+            ->update(['estadoOrden'=>'rechazado']);
             return response()->json(['respuesta'=>'rechazado']);
         }
     }
     public function reprocesarPedido(Request $request, $id){
         if($request -> ajax()){
-            $ordenCompra = OrdenCompra::where('id','=',(int)$id)->update(['estadoOrden'=>'pendiente']);
+            $ordenCompra = OrdenCompra::where('id','=',(int)$id)
+            ->update(['estadoOrden'=>'pendiente']);
             return response()->json(['respuesta'=>'pendiente']);
         }
-    }    
-
-
+    }
 }

@@ -15,12 +15,12 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        if ($request->session()->get('sesionAdministrador') == true) {
+            echo "Ya para que te vas a volver a logear rufian";
+            return redirect('admin/revisarVentas');
         }
-
         return $next($request);
     }
 }

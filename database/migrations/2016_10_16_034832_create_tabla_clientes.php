@@ -18,6 +18,7 @@ class CreateTablaClientes extends Migration
             $table->integer('id_distrito')->unsigned();
             $table->string('nombre');
             $table->string('apellidos');
+            $table->integer('telefono');
             $table->integer('dni');
             $table->string('domicilio');
             $table->timestamps();

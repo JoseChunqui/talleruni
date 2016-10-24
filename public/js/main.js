@@ -13,6 +13,6 @@ function carrito(){
 	var idProd = $('#idProd').text();
 	var nomProd = $('#nomProd').text();
 	var precioProd = $('#precioProd').text();
-	$('#aqui').append("<tr><td><img src='Imagenes/sandwich"+idProd+".jpg' alt='Pulpit Rock' style='width:50px;height:50px'></td><td>"+nomProd+"</td><td>"+precioProd+"</td><td><select class='form-control' id='sel1'><option>1</option><option>2</option><option>3</option><option>4</option></select></td><td>"+precioProd+"</td></tr>");
+	$('#productosAdd').append("<tr><td><img src='Imagenes/sandwich"+idProd+".jpg' alt='Pulpit Rock' style='width:50px;height:50px'></td><td>"+nomProd+"</td><td>"+precioProd+"</td><td><select class='form-control' id='sel1'><option>1</option><option>2</option><option>3</option><option>4</option></select></td><td>"+precioProd+"</td></tr>");
 
 }

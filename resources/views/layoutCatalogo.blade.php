@@ -29,12 +29,12 @@
                 <th>Sub-Total</th>
               </tr>
             </thead>
-            <tbody id="aqui">              
+            <tbody id="productosAdd">              
             </tbody>
           </table>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal" onClick="location.href='confirmarCompra';">Confirmar Compra</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" onClick="location.href='realizarCompra';">Confirmar Compra</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
@@ -75,8 +75,25 @@
   </header>
 
   <!--Inicio Contenido-->
-  <div class="content"> 
-    @yield('contenido')
+  <div class="content">
+    <div class="container-fluid">
+      <div class="col-md-3">
+        <nav>
+            <div class="list-group">
+              <p class="list-group-item list-group-item-info">Sandwichis</p>
+              @foreach ($catalogo as $menu)
+                <a href="#" class="list-group-item">{{$menu->nombreSandwich}}</a>
+              @endforeach
+            </div>
+        </nav>
+      </div>
+
+      <!--Contenido de la página-->
+      <div class="col-md-9">
+        @yield('contenido')
+      </div>
+    </div>
+
   </div>
   <!--Fin Contenido-->
 

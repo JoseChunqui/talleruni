@@ -17,7 +17,6 @@ class CreateTablaDetalleOrdenCompras extends Migration
             $table->integer('id_orden_compra')->unsigned();
             $table->integer('id_producto')->unsigned();
             $table->integer('cantidad');
-            $table->decimal('montoTotal',10,2);
             $table->timestamps();
 
             $table->foreign('id_orden_compra')->references('id')->on('orden_compras');

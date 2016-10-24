@@ -27,7 +27,7 @@
 		      <ul class="nav navbar-nav navbar-right">
 		      	<li><a href="/admin/revisarVentas">PEDIDOS</a></li>
 		        <li><a href="/admin/revisarHistorial">HISTORIAL</a></li>
-		        <li><a href="#">BALANCE</a></li>	  	        
+		        <li><a href="/admin/balanceVentas">BALANCE</a></li>	  	        
 		        <li role="presentation" class="dropdown">
 			    	<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 			    	DATA</a>
@@ -48,7 +48,7 @@
 			    		<li><a href="#">ULTIMAS ACCIONES</a></li>
 			    		<li><a href="#">AGREGAR ADMINISTRADORES</a></li>
 			    		<li role="separator" class="divider"></li>
-			    		<li><a href="/">SALIR</a></li>
+			    		<li><a href="logout">SALIR</a></li>
 						</ul>
 					</div>
 	    		</li>
@@ -62,11 +62,6 @@
 			@yield('contenido')
 		</div>
 		<!--Fin Contenido-->
-
-		<hr>
-		<hr>
-		<hr>
-		<hr>
 		</div>
 	
 	</body>

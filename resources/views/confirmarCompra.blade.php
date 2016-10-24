@@ -3,7 +3,7 @@
   Sandwiches Don Kike
 @stop 
 @section('contenido')
-<div class="container-fluid">
+<div class="row">
         <div class="col-sm-3"><nav>
               <div class="list-group">
                 <a href="#" class="list-group-item">Promociones de Delivery</a>
@@ -13,7 +13,7 @@
         </nav></div>
         <div class="col-sm-9">
             <article>
-                    <div class="panel panel-default">
+                <div class="panel panel-default">
                         <div class="panel-body">
                             <h2>Datos del cliente</h2>
                             <div class="container">
@@ -21,27 +21,27 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="usr">Nombres: </label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <output type="text" class="form-control" id="usr"></output>
                                         </div>
                                         <div class="form-group">
                                             <label for="usr">Apellidos: </label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <output type="text" class="form-control" id="usr"></output>
                                         </div>
                                         <div class="form-group">
                                             <label for="usr">DNI: </label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <output type="text" class="form-control" id="usr"></output>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="usr">Direccion: </label>
+                                            <output type="text" class="form-control" id="usr"></output>
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="usr">Distrito: </label>
-                                            <input type="text" class="form-control" id="usr">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="usr">Direccion: </label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <label for="usr">Forma de Pago: </label>
+                                            <output type="text" class="form-control" id="usr"></output>
                                         </div>
                                     </div>
                                 </div>
@@ -50,37 +50,60 @@
                     </div> 
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h2>Forma de Pago</h2>
-                            <form>
-                            <div class="form-group">
-                              <label for="sel1">Seleccionar forma de pago: </label>
-                              <select class="form-control" id="sel1">
-                                <option>Presencial</option>
-                                <option >Tarjeta de Credito</option>
-                              </select>
-                              <br>
-                              <br>
-                              <div >
-                                    <div class="form-group">
-                                            <label for="usr">Tarjeta de Credito: </label>
-                                            <input type="text" class="form-control" id="usr">
-                                    </div>   
-                                    <div class="form-group">
-                                            <label for="usr">Numero de tarjeta: </label>
-                                            <input type="text" class="form-control" id="usr">
-                                    </div>  
-                                    <div class="form-group">
-                                            <label for="usr">Clave de Tarjeta: </label>
-                                            <input type="text" class="form-control" id="usr">
-                                    </div>  
+                            <h2>Detalle de la Orden</h2>
+                            <div class="modal-body">
+                                <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>Productos</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Sub-Total</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td><img src="Imagenes\Sandwich1.jpg" alt="Pulpit Rock" style="width:50px;height:50px"></td>
+                                    <td>10.90</td>
+                                    <td>
+                                        <output type="text" class="form-control" id="usr">2</output>    
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" id="usr">21.80</output> 
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td><img src="Imagenes\Sandwich2.jpg" alt="Pulpit Rock" style="width:50px;height:50px"></td>
+                                    <td>10.90</td>
+                                    <td>
+                                        <output type="text" class="form-control" id="usr">2</output>    
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" id="usr">21.80</output> 
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td><img src="Imagenes\Sandwich3.jpg" alt="Pulpit Rock" style="width:50px;height:50px"></td>
+                                    <td>10.90</td>
+                                    <td>
+                                        <output type="text" class="form-control" id="usr">2</output>    
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" id="usr">21.80</output> 
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <div class="form-group">
+                                <label for="usr">Monto total:</label>
+                                <output type="text" class="form-control" id="usr"></output>
                               </div>
                             </div>
-                          </form>
                         </div>
-                    </div>   
+                    </div>
                     <div class="modal-footer">
-                          <button type="button" class="btn btn-success" data-dismiss="modal">Enviar</button>  
-                          <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="location.href='/';">Cancelar</button>
+                      <button type="button" class="btn btn-success" data-dismiss="modal">Confirmar</button>  
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Rechazar</button>
                     </div>
             </article>
         </div>

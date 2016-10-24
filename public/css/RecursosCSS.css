@@ -48,8 +48,11 @@ a:hover{
 }
 .header-row-bot-bg {
     width:100%;
-    min-height:122px;
+    min-height: 100px;
     background:url(../Imagenes/row-bot-bg.jpg) center top no-repeat;
+}
+.header-row-bot-bg .container .jumbotron{
+    height: 280px;
 }
 .content {
     width:100%;
