@@ -10,7 +10,7 @@
           <div class="col-md-4">
             <div>
               <a class="thumbnail" data-toggle="modal" data-target="#modalDetalle" onClick="mostrarDetalle({{$producto->id_producto}})">
-                <img src="Imagenes\productos\sandwichs\{{$producto->nombreImagenProducto}}" alt="Imagen del producto" style="width:230px;height:150px" class="img-thumbnail">
+                <img src="Imagenes/productos/sandwichs/{{$producto->nombreImagenProducto}}" alt="Imagen del producto" style="width:230px;height:150px" class="img-thumbnail">
                 <br>
                 <p align="center">{{$producto->nombreProducto}}</p>
                 <p align="center">S/.{{$producto->precioUnitario}}</p>

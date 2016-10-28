@@ -16,15 +16,9 @@
 //Módulo de Catalogo de Productos
 Route::get('/','mainController@mostrarProductosCatalogo');
 Route::get('productoEspecifico','mainController@personalizarProducto');
-
-Route::get('realizarCompra',function(){
-    return view('realizarCompra');
-});
-
-Route::get('confirmarCompra',function(){
-    return view('confirmarCompra');
-});
-
+Route::get('realizarCompra', 'mainController@realizarCompra');
+Route::get('confirmarCompra','mainController@confirmarCompra');
+Route::get('productoEspecifico','mainController@productoEspecifico');
 //Módulo de Administración -->Admin<--
 Route::group(['prefix'=>'admin', 'middleware'=> 'logeo'],function(){
     //Verificar Ventas
@@ -38,10 +32,10 @@ Route::group(['prefix'=>'admin', 'middleware'=> 'logeo'],function(){
     });
 
     Route::get('actualizarCombo', function () {
-        return view('actualizarCombo');
+        return view('admin/actualizarCombo');
     });
     Route::get('actualizarIngrediente', function () {
-        return view('actualizarIngrediente');
+        return view('admin/actualizarIngrediente');
     });
     Route::get('balanceVentas',function(){
         return view('admin/balanceVentas');
@@ -63,13 +57,14 @@ Route::get('admin/detallePedido/{id}','revisarVentaController@mostrarDetallePedi
 Route::get('admin/detalleProducto/{id}', 'mainController@mostrarDetallePedido');
 
 //Add Carrito
-Route::get('addCarrito/{id}','mainController@addCarrito');
+Route::get('addCarrito/{id}','carritoComprasController@addCarrito');
+Route::get('eliminarCarrito', 'carritoComprasController@eliminarCarrito');
+Route::get('eliminarProductoCarrito/{id}', 'carritoComprasController@eliminarProductoCarrito');
 
 Route::group(['middleware'=> 'guest'],function(){
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
 });
 
-Route::get('/home', 'HomeController@index');
 
 

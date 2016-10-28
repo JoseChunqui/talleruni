@@ -3,7 +3,8 @@
 <head>
   <title>Sandwiches Don Kike</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf_token" content="{ csrf_token() }" />  
   {!! Html::style('css/bootstrap.min.css') !!}
   {!! Html::style('css/RecursosCSS.css')!!}
   {!! Html::script('js/jquery-3.1.0.min.js')!!}
@@ -14,7 +15,7 @@
   $carrito=Cookie::get('cookieCarrito',array([],[]));
 @endphp
   <div class="modal fade" id="modalCarrito" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog" id="modalCarritoContenido">
     <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -25,20 +26,21 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th></th>
-                <th>Productos</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Sub-Total</th>
+                <th class="col-sm-2"><p align="center">Imagen</p></th>
+                <th class="col-sm-4"><p align="center">Productos</p></th>
+                <th class="col-sm-1"><p align="center">Precio</p></th>
+                <th class="col-sm-1"><p align="center">Cantidad</p></th>
+                <th class="col-sm-2"><p align="center">Sub-Total</p></th>
+                <th class="col-sm-2"><p align="center">Accion</th>
               </tr>
             </thead>
             <tbody id="productosAdd">
             @php $i=0; @endphp
             @if($productosCarrito != null)
             @foreach($productosCarrito[0] as $prods)
-            <tr id="productoComprado_{{$prods}}">
+            <tr class='productosComprados' id="productoComprado_{{$prods}}">
               <td>
-                <img src="Imagenes\productos\sandwichs\{{$productosCarrito[1][$i]}}" alt="Imagen del producto" style='width:70px;height:50px' class="img-thumbnail">
+                <img src="Imagenes/productos/sandwichs/{{$productosCarrito[1][$i]}}" alt="Imagen del producto"  class="img-thumbnail">
               </td>
               <td>{{$productosCarrito[2][$i]}}</td>
               <td id="precioProd_{{$prods}}">{{$productosCarrito[3][$i]}}</td>
@@ -50,7 +52,7 @@
                 </select>
               </td>
               <td id="subTotal_{{$prods}}">{{$productosCarrito[3][$i]}}</td>
-              <td><button id='botoncito' onClick='eliminarCarrito({{$prods}})' class='btn btn-default'>Eliminar</button></td>
+              <td align= "center"><button onClick='eliminarProductoCarrito({{$prods}})' class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
             </tr>            
             @php $i=$i+1; @endphp
             @endforeach
@@ -59,7 +61,8 @@
           </table>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal" onClick="location.href='realizarCompra';">Confirmar Compra</button>
+          <button type="button" class="btn btn-danger  pull-left" onClick="eliminarCarrito()">Vaciar el Carrito</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" onClick="location.href='realizarCompra';">Confirmar Compra</button>          
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
@@ -108,9 +111,9 @@
         <nav>
             <div class="list-group">
               <p class="list-group-item list-group-item-info">Sandwichis</p>
-              @foreach ($catalogo as $menu)
-                <a href="#" class="list-group-item">{{$menu->nombreSandwich}}</a>
-              @endforeach
+              <p class="list-group-item">Sándwichs Criollos</p>
+              <p class="list-group-item">Sándwichs Vegetarianos</p>
+              <p class="list-group-item">Sándwichs Calientes</p>
             </div>
         </nav>
       </div>

@@ -4,14 +4,6 @@
 @stop 
 @section('contenido')
 <div class="container-fluid">
-        <div class="col-sm-3"><nav>
-              <div class="list-group">
-                <a href="#" class="list-group-item">Promociones de Delivery</a>
-                <a href="#" class="list-group-item">Sandwiches</a>
-                <a href="#" class="list-group-item">Combos</a>
-              </div>
-        </nav></div>
-        <div class="col-sm-9">
             <article>
                     <div class="panel panel-default">
                         <div class="panel-body">
@@ -83,6 +75,5 @@
                           <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="location.href='/';">Cancelar</button>
                     </div>
             </article>
-        </div>
 </div>
 @stop
