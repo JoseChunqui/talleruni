@@ -62,6 +62,8 @@ Route::get('admin/detallePedido/{id}','revisarVentaController@mostrarDetallePedi
 //Recepción de la petición AJAX para mostrar Detalle de Producto
 Route::get('admin/detalleProducto/{id}', 'mainController@mostrarDetallePedido');
 
+//Add Carrito
+Route::get('addCarrito/{id}','mainController@addCarrito');
 
 Route::group(['middleware'=> 'guest'],function(){
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

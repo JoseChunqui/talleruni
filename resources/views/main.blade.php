@@ -33,11 +33,12 @@
         <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
               <div class="form-group" hidden>
-                <label class="col-xs-3" for="nomProducto">id Producto:</label>
                 <div class="col-xs-9">
                   <p class="form-control-static" id="idProd"></p>
+                  <p class="form-control-static" id="imagenProducto"></p>
                 </div>
-              </div>              
+              </div>
+                      
             <form class="form-horizontal">
               <div class="form-group">
                 <label class="col-xs-3" for="nomProducto">Producto:</label>

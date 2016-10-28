@@ -10,6 +10,9 @@
   {!! Html::script('js/bootstrap.min.js')!!} 
 </head>
 <body>
+@php 
+  $carrito=Cookie::get('cookieCarrito',array([],[]));
+@endphp
   <div class="modal fade" id="modalCarrito" role="dialog">
     <div class="modal-dialog">
     <!-- Modal content-->
@@ -29,7 +32,29 @@
                 <th>Sub-Total</th>
               </tr>
             </thead>
-            <tbody id="productosAdd">              
+            <tbody id="productosAdd">
+            @php $i=0; @endphp
+            @if($productosCarrito != null)
+            @foreach($productosCarrito[0] as $prods)
+            <tr id="productoComprado_{{$prods}}">
+              <td>
+                <img src="Imagenes\productos\sandwichs\{{$productosCarrito[1][$i]}}" alt="Imagen del producto" style='width:70px;height:50px' class="img-thumbnail">
+              </td>
+              <td>{{$productosCarrito[2][$i]}}</td>
+              <td id="precioProd_{{$prods}}">{{$productosCarrito[3][$i]}}</td>
+              <td><select onClick='totalizarCarrito({{$prods}})' class='form-control' id="numOption_{{$prods}}">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                </select>
+              </td>
+              <td id="subTotal_{{$prods}}">{{$productosCarrito[3][$i]}}</td>
+              <td><button id='botoncito' onClick='eliminarCarrito({{$prods}})' class='btn btn-default'>Eliminar</button></td>
+            </tr>            
+            @php $i=$i+1; @endphp
+            @endforeach
+            @endif
             </tbody>
           </table>
         </div>
@@ -53,7 +78,9 @@
             <li><a  onclick="location.href='login';">Iniciar Seción</a></li>
             <li>
               <button type="button" data-toggle="modal" class="btn btn-info" data-target="#modalCarrito">
-              <span class="glyphicon glyphicon-shopping-cart"></span> Carrito de compra <span class="badge" id="numProdComprados">0</span>
+              <span class="glyphicon glyphicon-shopping-cart"></span> Carrito de compra <span class="badge" id="numProdComprados">
+                {{count($carrito[0])}}
+              </span>
               </button> 
             </li>
           </ul>

@@ -32,8 +32,12 @@ class LoginController extends Controller
     {
         $this->validateLogin($request);
 
+        
+
         $where = ['email' => $request->email, 'clave' => $request->password];
+
         $usuarioValido = Administrador::where($where)->find(1);
+
         if($usuarioValido == null){
             if($request->session()->get('intentosSesion') <3){
                 $intentosSesion = $request->session()->get('intentosSesion');
