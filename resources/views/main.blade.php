@@ -3,24 +3,38 @@
   Sandwiches Don Kike
 @stop 
 @section('contenido')
-  {!! Html::script('js/main.js')!!}
-<article>
-      <div class="row">
-        @foreach($productos as $producto)
-          <div class="col-md-4">
-            <div>
-              <a class="thumbnail" data-toggle="modal" data-target="#modalDetalle" onClick="mostrarDetalle({{$producto->id_producto}})">
-                <img src="Imagenes/productos/sandwichs/{{$producto->nombreImagenProducto}}" alt="Imagen del producto" style="width:230px;height:150px" class="img-thumbnail">
-                <br>
-                <p align="center">{{$producto->nombreProducto}}</p>
-                <p align="center">S/.{{$producto->precioUnitario}}</p>
-                <center><button class="btn btn-default">Detalles</button></center>
-              </a>
-            </div>
-          </div>                                    
-        @endforeach  
-        </div>                    
+<div class="col-md-3 listMenu">
+  <nav>
+      <div class="list-group">
+      
+        <a id="allSandwichs" class="list-group-item list-group-item-info" onClick="menuProductos()">Todos nuestros Sándwichs</a>
+        <a id="SándwichsCriollos" onClick="menuProductos(this.id)" class="menuProd list-group-item">Sándwichs Criollos</a>
+        <a id="SándwichsVegetarianos" onClick="menuProductos(this.id)" class="menuProd list-group-item">Sándwichs Vegetarianos</a>
+        <a id="SándwichsCalientes" onClick="menuProductos(this.id)" class="menuProd list-group-item">Sándwichs Calientes</a>
+      </div>
+  </nav>
+</div>
+<div class="col-md-9">
+<article >
+  <div class="row">
+    @foreach($productos as $producto)
+    <div class="prods {{str_replace(" ","",$producto->tipoSandwich)}}"> 
+      <div class="col-md-4">
+          <a class="thumbnail" data-toggle="modal" data-target="#modalDetalle" onClick="mostrarDetalle({{$producto->id_producto}})">
+            <img src="/Imagenes/productos/sandwichs/{{$producto->nombreImagenProducto}}" alt="Imagen del producto" style="width:230px;height:150px" class="img-thumbnail">
+            <br>
+            <p align="center">{{$producto->nombreProducto}}</p>
+            <p align="center">S/.{{$producto->precioUnitario}}</p>
+            <center><button class="btn btn-default">Detalles</button></center>
+          </a>
+      </div>
+    </div>                                    
+    @endforeach  
+    </div>                    
 </article>
+</div>
+
+
 {{--Modal--}}
 <div class="modal fade" id="modalDetalle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

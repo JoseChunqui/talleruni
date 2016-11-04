@@ -1,10 +1,10 @@
 function mostrarDetalle(id_pedido){
-	$.get("/admin/detallePedido/"+id_pedido.toString(), function(response,state){
+	$.get("/admin/detallePedido/"+id_pedido.toString(), function(response,state,xhr){
 		var totalCobrar = 0;
 		var nombreProducto;
 		var id_producto;
 		var precioUnitario;
-
+		console.log(xhr);
 		$('#codPedido').text(response.codPedido);
 		$('#fechaPedido').text(response.fechaPedido);
 		$('#nomCliente').text(response.nombre);
@@ -20,14 +20,17 @@ function mostrarDetalle(id_pedido){
 			id_producto = JSON.parse(response.productosComprados[i].id_producto);
 			nombreProducto = JSON.parse(JSON.stringify(response.productosComprados[i].nombreProducto));
 			precioUnitario = JSON.parse(response.productosComprados[i].precioUnitario);
+			cantidadProd = JSON.parse(response.productosComprados[i].cantidad);
 			$('#productosComprados').append("<tr class='listProd'><td><p>"+
 				id_producto +
-				"</p></td><td><p>"+
+				"</p></td><td><span>"+
 				nombreProducto+
-				"</p></td><td><p>"+
+				"</span></td><td><p>"+
 				"S/."+precioUnitario+
-				"</p></td></tr>");
-			totalCobrar= totalCobrar + precioUnitario;
+				"</p></td>"+
+				"<td><p>"+cantidadProd+"</p></td>"+
+				"</tr>");
+			totalCobrar= totalCobrar + precioUnitario*cantidadProd;
 		}
 		$("#totalCobrar").text("S/."+ totalCobrar);
 	});

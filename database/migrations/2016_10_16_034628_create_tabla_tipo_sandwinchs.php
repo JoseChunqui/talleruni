@@ -15,7 +15,7 @@ class CreateTablaTipoSandwinchs extends Migration
     {
         Schema::create('tipo_sandwichs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombreSandwich');
+            $table->string('nombreTipoSandwich');
             $table->string('descripcion');
             $table->string('estado');
 

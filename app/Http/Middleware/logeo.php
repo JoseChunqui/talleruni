@@ -22,7 +22,7 @@ class logeo
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect('login');;
+                return redirect('login');
             }
         }
         return $next($request);

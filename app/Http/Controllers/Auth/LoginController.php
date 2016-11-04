@@ -30,9 +30,7 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {
-        $this->validateLogin($request);
-
-        
+        $this->validateLogin($request);        
 
         $where = ['email' => $request->email, 'clave' => $request->password];
 
@@ -48,7 +46,7 @@ class LoginController extends Controller
                   ->withErrors(array("messages"=>"Datos incorrectos"))
                   ->withInput();   
             }else{
-                echo "denunciado papu";
+                echo "DEMASIADOS INTENTOS";
                 //Código adicional de Seguridad (CAPTCHA)
             }
          

@@ -8,14 +8,8 @@
 <div class="container-fluid">
 	<div class="panel panel-success">
 		<!--Cabecera de la vista Historial de Ventas-->
-		<div class="panel-header">
-			<nav class="navbar navbar-success">
-			  <div class="container-fluid">
-			    <div class="navbar-header">
-			    	<p class="navbar-brand">Historial de Ventas</p>
-			    </div>
-			  </div>
-			</nav>
+		<div class="panel-heading">
+		<h4>Historial de Ventas</h4>
 		</div>
 		<!--Contenido de la vista Historial de Ventas-->
 		<div class="panel-body">
@@ -24,7 +18,7 @@
 			<!--Lista de Pedidos procesados-->
 				<div class="col-md-6">
 				    <div class="panel panel-success">
-				    	<div class="panel-heading">Pedidos Pendientes</div>
+				    	<div class="panel-heading">Pedidos Procesados</div>
 				      	<table class="table table-bordered">
 					      	<thead>
 					      		<tr>
@@ -111,9 +105,10 @@
 						      	<table class="table table-bordered table-condensed">
 						      		<thead>
 								      	<tr>
-						      				<th class="col-sm-1"><p>Código</p></th>
-						      				<th><p>Producto</p></th>
-						      				<th><p>Precio</p></th>
+						      				<th class="col-sm-1"><p>Cod.</p></th>
+						      				<th class="col-sm-6"><p>Producto</p></th>
+						      				<th class="col-sm-4"><p>Precio</p></th>
+						      				<th class="col-sm-1"><p>Cant.</p></th>
 						      			</tr>
 						      		</thead>
 						      		<tbody id=productosComprados>
@@ -133,7 +128,7 @@
 								</ul>
 							</div>
 							<div >
-						      	<button type="button" class="btn btn-default" onclick="reprocesarPedido()">Marcar pedido como Pendiente</button>
+						      	<p type="button" class="btn btn-danger btn-sm" onclick="reprocesarPedido()">Marcar Pendiente</p>
 						    </div>								
 						</div>
 

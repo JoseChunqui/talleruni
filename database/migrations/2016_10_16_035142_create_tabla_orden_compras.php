@@ -17,7 +17,7 @@ class CreateTablaOrdenCompras extends Migration
             $table->increments('id');
             $table->integer('id_cliente')->unsigned();
             $table->dateTime('fechaPedido');
-            $table->dateTime('fechaEntrega')->null();
+            $table->dateTime('fechaEntrega')->nullable();
             $table->string('estadoOrden');
             $table->timestamps();
 

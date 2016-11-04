@@ -92,9 +92,10 @@
 						      	<table class="table table-bordered table-condensed">
 						      		<thead>
 								      	<tr>
-						      				<th class="col-sm-1"><p>Código</p></th>
-						      				<th><p>Producto</p></th>
-						      				<th><p>Precio</p></th>
+						      				<th class="col-sm-1"><p>Cod.</p></th>
+						      				<th class="col-sm-7"><p>Producto</p></th>
+						      				<th class="col-sm-3"><p>Precio</p></th>
+						      				<th class="col-sm-1"><p>Cant.</p></th>
 						      			</tr>
 						      		</thead>
 						      		<tbody id=productosComprados>

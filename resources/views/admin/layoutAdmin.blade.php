@@ -1,30 +1,34 @@
 <html lang=”es”>
-	<head>
-		<meta charset=”utf-8”>
-		<title>@yield('titulo','Administración')</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		{!! Html::style('css/bootstrap.min.css') !!}
-		{!! Html::style('css/mainActualizar.css')!!}
-		{!!	Html::script('js/jquery-3.1.0.min.js')!!}
-		{!!	Html::script('js/bootstrap.min.js')!!}
-		{!! Html::script('js/mainActualizar.js')!!}	
-
-	</head>
-	<body>
-		<div class=container-fluid>
-
+<head>
+	<meta charset=”utf-8”>
+	<title>@yield('titulo','Administración')</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="{{ asset('ms-icon-70x70.png') }}"> 
+	{!! Html::style('css/bootstrap.min.css') !!}
+	{!! Html::style('css/mainActualizar.css')!!}
+	{!!	Html::script('js/jquery-3.1.0.min.js')!!}
+	{!!	Html::script('js/bootstrap.min.js')!!}
+	
+	{!! Html::script('https://js.pusher.com/3.2/pusher.min.js')!!}
+	{!! Html::script('js/adminModule.js')!!}
+</head>
+<body>
+	<div class=container-fluid>
 		<nav class="navbar navbar-default navbar-fixed-top">
 		  <div class="container">
 		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar1">
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="#">SANDWICH PLUS</a>
+		    		<a class="navbar-brand" href="/admin/revisarVentas">SANDWICH PLUS</a>    			      		
+		      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span></button>   
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar1">
-		      <ul class="nav navbar-nav navbar-right">
+		      <ul class="nav navbar-nav navbar-right" id="menu-admin">
+		    	<li class="alert alert-info" id="new-orders" onclick="location.href='revisarVentas';">
+		      		<span>Hay nuevos Pedidos <label id="contador-pedidos">0</label></span>
+		      	</li>		      	
 		      	<li><a href="/admin/revisarVentas">PEDIDOS</a></li>
 		        <li><a href="/admin/revisarHistorial">HISTORIAL</a></li>
 		        <li><a href="/admin/balanceVentas">BALANCE</a></li>	  	        
@@ -64,5 +68,5 @@
 		<!--Fin Contenido-->
 		</div>
 	
-	</body>
+</body>
 </html>

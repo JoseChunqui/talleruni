@@ -1,4 +1,5 @@
-html {width:100%;}
+html {width:100%;
+}
 button.btn btn-primary{
     position: absolute;
     top:5px;
@@ -29,6 +30,7 @@ nav{
 article{
     margin-right: 40px;
 }
+    
 p.justificar{
     text-align: justify;
 }
@@ -39,7 +41,13 @@ a{
     outline: none;
 }
 a:hover{
+    cursor:pointer;
     text-decoration:none;
+}
+.alert {
+    margin-top:8px;
+    margin-bottom: 0px;
+    padding:7px;
 }
 
 .header-row-bot {
@@ -109,4 +117,27 @@ a:hover{
 
 #modalCarritoContenido{ 
     width: 60% !important;
+}
+.listMenu{
+    background:url(../Imagenes/row-bot-bg.jpg); 
+
+}
+.table {
+    text-align: center;
+}
+.table th{ 
+    text-align: center;   
+}
+.table p{ 
+    padding-top:10px;
+    display: inline;
+}
+
+/*===>>FORMULARIO DE COMPRA<<=====*/
+.registro-compra{
+    padding-left: 30px;
+}
+
+.registro-compra .form-group{
+    padding-left: 0px;
 }

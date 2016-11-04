@@ -11,10 +11,6 @@ use App\OrdenCompra;
 
 class revisarVentaController extends Controller
 {
-    /*public function __construct()
-    {
-        $this->middleware('logeo');
-    }*/
 
     public function mostrarPedidosPendientes(){
         $ordenesCompra = OrdenCompra::join('clientes','orden_compras.id_cliente','=','clientes.id')
@@ -24,6 +20,7 @@ class revisarVentaController extends Controller
                 'distritos.nombreDistrito',
                 'orden_compras.estadoOrden')
         ->where('orden_compras.estadoOrden','=','pendiente')
+        ->orderBy('orden_compras.fechaPedido','ASC')
         ->get();
         return view('admin/revisarVentas', compact('ordenesCompra'));
     }
@@ -39,6 +36,7 @@ class revisarVentaController extends Controller
                     )
             ->where('orden_compras.estadoOrden','=','procesado')
             ->orWhere('orden_compras.estadoOrden','=','rechazado')
+            ->orderBy('orden_compras.fechaPedido','ASC')
             ->get();    
         return view('admin/revisarHistorial', compact('ordenesCompra'));        
     }
@@ -58,7 +56,7 @@ class revisarVentaController extends Controller
 
             //Productos comprados (Detalle de Orden)
             $productosComprados = DetalleOrdenCompra::join('productos','detalle_orden_compras.id_producto','=','productos.id')
-            ->select('productos.nombreProducto','productos.id as id_producto','productos.precioUnitario')
+            ->select('productos.nombreProducto','productos.id as id_producto','productos.precioUnitario', 'detalle_orden_compras.cantidad')
             ->where('detalle_orden_compras.id_orden_compra','=',(int)$id)
             ->get();
 

@@ -1,14 +1,17 @@
 body {
-  font: 12px Montserrat, sans-serif;
+  font: 13px Montserrat, sans-serif;
   line-height: 1.8;
-  /*color: #f5f6f7;*/
-  padding-top: 50px;
+  padding-top: 60px;
 }
 a:link   
 {   
  text-decoration:none;   
 }  
 p{
+  font-size: 13px;
+  padding-top: 5px; 
+}
+span{
   font-size: 13px;
   padding-top: 5px; 
 }
@@ -22,7 +25,7 @@ p{
   color: #ffffff;
 }
 .bg-3 {
-  background-color: #ffffff; /* White */
+  background-color: #008ae6; /* White */
   color: #555555;
 }
 .bg-4 {
@@ -36,11 +39,11 @@ p{
 .navbar {
   padding-top: 15px;
   padding-bottom: 15px;
-  border: 0;
+  border: 1;
   border-radius: 0;
   margin-bottom: 0;
   font-size: 15px;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
 }
 .navbar-nav  li a:hover {
   color: #1abc9c !important;
@@ -50,9 +53,58 @@ p{
   font-size: 15px;
   letter-spacing: 3px;
 }
-
 .navbar-success{
   color:#3c763d;
   background-color: #dff0d8;
 }
 
+.table th{
+  text-align: center;
+}
+.table p{
+  text-align: center;
+}
+
+
+/*====>>AVISO DE NUEVAS VENTAS<<==*/
+#new-orders{  
+  letter-spacing: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 5 auto;
+  margin-right: 20px;
+  font-size: 15px;
+  display: none;
+}
+#new-orders:hover{  
+  cursor:pointer;
+}  
+.item-parpadeo{
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}  
+
+@-moz-keyframes parpadeo{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}*/

@@ -4,16 +4,20 @@
   <title>Sandwiches Don Kike</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="csrf_token" content="{ csrf_token() }" />  
+  <meta name="csrf_token" content="{ csrf_token() }" />
+  <link rel="shortcut icon" href="{{ asset('ms-icon-70x70.png') }}"> 
   {!! Html::style('css/bootstrap.min.css') !!}
   {!! Html::style('css/RecursosCSS.css')!!}
   {!! Html::script('js/jquery-3.1.0.min.js')!!}
-  {!! Html::script('js/bootstrap.min.js')!!} 
+  {!! Html::script('js/bootstrap.min.js')!!}
+  {!! Html::script('js/main.js')!!}
+  {!! Html::script('js/realizarPedido.js')!!}
 </head>
 <body>
 @php 
-  $carrito=Cookie::get('cookieCarrito',array([],[]));
+  $carrito=Cookie::get('cookieCarrito',0);
 @endphp
+
   <div class="modal fade" id="modalCarrito" role="dialog">
     <div class="modal-dialog" id="modalCarritoContenido">
     <!-- Modal content-->
@@ -26,37 +30,15 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th class="col-sm-2"><p align="center">Imagen</p></th>
-                <th class="col-sm-4"><p align="center">Productos</p></th>
-                <th class="col-sm-1"><p align="center">Precio</p></th>
-                <th class="col-sm-1"><p align="center">Cantidad</p></th>
-                <th class="col-sm-2"><p align="center">Sub-Total</p></th>
-                <th class="col-sm-2"><p align="center">Accion</th>
+                <th class="col-sm-2"><p>Imagen</p></th>
+                <th class="col-sm-4"><p>Productos</p></th>
+                <th class="col-sm-2"><p>Precio</p></th>
+                <th class="col-sm-1"><p>Cantidad</p></th>
+                <th class="col-sm-2"><p>Sub-Total</p></th>
+                <th class="col-sm-1"><p>Accion</p></th>
               </tr>
             </thead>
             <tbody id="productosAdd">
-            @php $i=0; @endphp
-            @if($productosCarrito != null)
-            @foreach($productosCarrito[0] as $prods)
-            <tr class='productosComprados' id="productoComprado_{{$prods}}">
-              <td>
-                <img src="Imagenes/productos/sandwichs/{{$productosCarrito[1][$i]}}" alt="Imagen del producto"  class="img-thumbnail">
-              </td>
-              <td>{{$productosCarrito[2][$i]}}</td>
-              <td id="precioProd_{{$prods}}">{{$productosCarrito[3][$i]}}</td>
-              <td><select onClick='totalizarCarrito({{$prods}})' class='form-control' id="numOption_{{$prods}}">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                </select>
-              </td>
-              <td id="subTotal_{{$prods}}">{{$productosCarrito[3][$i]}}</td>
-              <td align= "center"><button onClick='eliminarProductoCarrito({{$prods}})' class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-            </tr>            
-            @php $i=$i+1; @endphp
-            @endforeach
-            @endif
             </tbody>
           </table>
         </div>
@@ -82,7 +64,7 @@
             <li>
               <button type="button" data-toggle="modal" class="btn btn-info" data-target="#modalCarrito">
               <span class="glyphicon glyphicon-shopping-cart"></span> Carrito de compra <span class="badge" id="numProdComprados">
-                {{count($carrito[0])}}
+                {{is_array($carrito)? array_sum($carrito[4]): 0}}
               </span>
               </button> 
             </li>
@@ -94,7 +76,7 @@
       <div class="header-row-bot-bg">
         <div class="container">
           <div class="jumbotron">
-            <img class ="logo" src="Imagenes\logo.png" alt="Logo empresa" style="float:left">
+            <img class ="logo" src="/Imagenes/logo.png" alt="Logo empresa" style="float:left">
             <h1>La Sandwicheria de Don Kike</h1>
               <P align="right">INFORMES: sandwicheria.kike@gmail.com</P>
               <p align="right">TELEFONO: 555-5555</p>
@@ -107,23 +89,8 @@
   <!--Inicio Contenido-->
   <div class="content">
     <div class="container-fluid">
-      <div class="col-md-3">
-        <nav>
-            <div class="list-group">
-              <p class="list-group-item list-group-item-info">Sandwichis</p>
-              <p class="list-group-item">Sándwichs Criollos</p>
-              <p class="list-group-item">Sándwichs Vegetarianos</p>
-              <p class="list-group-item">Sándwichs Calientes</p>
-            </div>
-        </nav>
-      </div>
-
-      <!--Contenido de la página-->
-      <div class="col-md-9">
-        @yield('contenido')
-      </div>
+      @yield('contenido')
     </div>
-
   </div>
   <!--Fin Contenido-->
 
