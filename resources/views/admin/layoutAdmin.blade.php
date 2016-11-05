@@ -36,7 +36,7 @@
 			    	<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 			    	DATA</a>
 			    	<ul class="dropdown-menu">
-			    	  <li><a href="/admin/actualizarIngrediente">INGREDIENTES</a></li>
+			    	  <li><a href="/admin/actualizarIngr">INGREDIENTES</a></li>
 				  	  <li><a href="/admin/actualizarProducto">PRODUCTOS</a></li>
 				  	  <li><a href="/admin/actualizarCombo">COMBOS</a></li>
 				  	  <li><a href="#">OFERTA</a></li>

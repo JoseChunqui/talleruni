@@ -67,4 +67,19 @@ Route::get('eventoPusherTest', function(){
     event(new \App\Events\nuevoPedidoEvent());
     return  view('productoEspecifico');
 });
+//parte Antonio
+Route::get('showList','updIngController@mostrarIng');
+Route::get('showDetail/{nameIng}','updIngController@eachSearch');
+Route::get('admin/actualizarIngr/{nameIng?}',function ($nameIng=null){
+    if($nameIng == null){
+        return redirect()->action('updIngController@mostrarIng');
+    }else{
+        return redirect()->action('updIngController@eachSearch', ['nameIng' => $nameIng]);
+    }
+});
+Route::post('insertIng','updIngController@crear');
+Route::get('deleteIng/{id}','updIngController@delete');
+Route::post('updIng/{id}','updIngController@update');
+Route::get('showdetail/{id}','updIngController@showdetail');
+Route::get('/deleteAll','updIngController@deleteAll');
 

@@ -42,7 +42,10 @@ return [
     */
 
     'disks' => [
-
+        'storageApp'=>[
+            'driver'=>'local',
+            'root'=>public_path('Imagenes'),
+        ],
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
