@@ -51,7 +51,7 @@ function showdetail(id){
 }
 function search(){
 	var valueId = $("#searchIng").val();
-	$(location).attr('href','admin/actualizarIngr/'+valueId);
+	$(location).attr('href','/admin/actualizarIngr/'+valueId);
 }
 function setCookie(cname,cvalue) {
 	$("#modallista"+cvalue).remove();

@@ -50,6 +50,10 @@ Route::group(['prefix'=>'admin', 'middleware'=> 'logeo'],function(){
     //Recepción de la petición AJAX para mostrar Detalle de Pedido
     Route::get('detallePedido/{id}','revisarVentaController@mostrarDetallePedido');
 
+    //Balance de Ventas AJAX
+    Route::get('periodoBalance','balanceVentasController@periodoBalance');
+
+    Route::get('chartBalance','balanceVentasController@chartBalance');
 
     //Salir del módulo de Administración del negocio
     Route::get('logout', 'Auth\LoginController@logout');

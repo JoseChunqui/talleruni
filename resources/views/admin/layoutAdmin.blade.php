@@ -6,8 +6,14 @@
 	<link rel="shortcut icon" href="{{ asset('ms-icon-70x70.png') }}"> 
 	{!! Html::style('css/bootstrap.min.css') !!}
 	{!! Html::style('css/mainActualizar.css')!!}
+	{!! Html::style('css/jquery-ui.css')!!}
+
 	{!!	Html::script('js/jquery-3.1.0.min.js')!!}
 	{!!	Html::script('js/bootstrap.min.js')!!}
+
+	{!!	Html::script('js/jquery-ui.js')!!}
+
+
 	
 	{!! Html::script('https://js.pusher.com/3.2/pusher.min.js')!!}
 	{!! Html::script('js/adminModule.js')!!}
