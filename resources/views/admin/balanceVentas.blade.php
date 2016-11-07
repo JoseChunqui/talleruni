@@ -100,6 +100,32 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-md-12" id="reporteProductos" hidden>
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<p>LISTA DE PRODUCTOS VENDIDOS</p>
+					</div>
+					<div class="panel-body">
+						<div class="col-md-2"></div>
+						<div class="col-md-8">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th><p>Id del Producto</p></th>
+									<th><p>Nombre del Producto</p></th>
+									<th><p>Cantidad Vendida</p></th>
+								</tr>
+							</thead>
+							<tbody id="productosVendidosCantidad" >
+								
+							</tbody>
+						</table>
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+				</div>
+				
+			</div>
 		</div>
 	</div>
 </div>

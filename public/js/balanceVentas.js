@@ -97,6 +97,16 @@ function enviarPeriodo(){
 			}else{
 				$("#num-productos-vendidos").text("0");
 			}
+			$('.listProductos').remove();
+			$.each(response.productosCantidad, function(key,value){
+				$('#productosVendidosCantidad').append(
+					"<tr class='listProductos'>"+
+					"<td><p>"+value.id_producto+"</p></td>"+
+					"<td><p>"+value.nombreProducto+"</p></td>"+
+					"<td><p>"+value.cantidadVendida+"</p></td>"+
+					"</tr>"
+				);
+			});
 			
 		},
 		error: function(){
@@ -184,7 +194,6 @@ function obtenerBalancesPasados(periodo = null){
 				("Del ").concat(t2_i.substr(0,5)).concat(" al ").concat(t2_f.substr(0,5)),
 				("Del ").concat(t3_i.substr(0,5)).concat(" al ").concat(t3_f.substr(0,5))];
 	}
-	alert(t1_i);
 	$.ajax({
 		type: 'get',
 		url: 'chartBalance',
@@ -199,7 +208,8 @@ function obtenerBalancesPasados(periodo = null){
 			},
 		dataType: "json",
 		success: function(response,status,xhr){
-			$("#balanceVentas").show();	
+			$("#balanceVentas").show();
+			$("#reporteProductos").show();
 			google.charts.setOnLoadCallback(drawChart(periodo,titles[0],titles[1],titles[2],titles[3],response.balance_t0,response.balance_t1,response.balance_t2,response.balance_t3));
 		},
 		error: function(){

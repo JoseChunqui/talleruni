@@ -36,7 +36,7 @@ class revisarVentaController extends Controller
                     )
             ->where('orden_compras.estadoOrden','=','procesado')
             ->orWhere('orden_compras.estadoOrden','=','rechazado')
-            ->orderBy('orden_compras.fechaPedido','ASC')
+            ->orderBy('orden_compras.fechaPedido','DESC')
             ->get();    
         return view('admin/revisarHistorial', compact('ordenesCompra'));        
     }

@@ -12,8 +12,6 @@
 	{!!	Html::script('js/bootstrap.min.js')!!}
 
 	{!!	Html::script('js/jquery-ui.js')!!}
-
-
 	
 	{!! Html::script('https://js.pusher.com/3.2/pusher.min.js')!!}
 	{!! Html::script('js/adminModule.js')!!}

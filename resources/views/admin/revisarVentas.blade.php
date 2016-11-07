@@ -5,7 +5,7 @@
 @section('contenido')
 	{!!	Html::script('js/revisarVentas.js')!!}
 	<div class="container-fluid">
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
 			<!--Cabecera de la vista de Revisión de pedidos-->
 			<div class="panel-heading">
 				<h4>Procesar Pedidos Pendientes</h4>
@@ -13,7 +13,7 @@
 			<div class="panel-body">
 				<!--Enlistado de pedidos-->
 				<div class="col-md-6">
-				    <div class="panel panel-default">
+				    <div class="panel panel-primary">
 				    	<div class="panel-heading">Pedidos Pendientes</div>
 				      	<table class="table table-bordered">
 					      	<thead>
@@ -43,7 +43,7 @@
 				</div>						
 				<div class="col-md-6">
 					<!--Detalles de pedido-->
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 				      <div class="panel-heading">Detalle del Pedido</div>
 				      <div class="panel-body">
 				      	<div class="col-md-9">

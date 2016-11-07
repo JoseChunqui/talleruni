@@ -34,6 +34,18 @@ class balanceVentasController extends Controller
     		->get()
     		->first();
 
+            $productosCantidad = Producto::select('productos.id as id_producto','productos.nombreProducto', DB::raw('sum(detalle_orden_compras.cantidad) as cantidadVendida'))
+            ->leftjoin('detalle_orden_compras','productos.id','=','detalle_orden_compras.id_producto')
+            ->leftjoin('orden_compras','orden_compras.id','=','detalle_orden_compras.id_orden_compra')
+            ->groupBy('productos.id','productos.nombreProducto')
+            ->orderBy(DB::raw('sum(detalle_orden_compras.cantidad)'),'DESC')
+            ->where([
+                ['orden_compras.estadoOrden','=','procesado'],
+                ['orden_compras.fechaPedido', '>=', $fechaInicial],
+                ['orden_compras.fechaPedido', '<', $fechaFinal]
+                ])
+            ->get();
+
     		$numPedidosRealizados = OrdenCompra::select(DB::raw('count(orden_compras.id) as cantidadVentaTotal'))
     		->where([
     			['estadoOrden','<>','pendiente'],
@@ -42,13 +54,12 @@ class balanceVentasController extends Controller
     			])
     		->get()
     		->first();
-
-
     		return response()->json([
     			'fechaInicial' => $fechaInicial,
     			'fechaFinal' => $fechaFinal,
     			'balanceGeneral' => $balanceGeneral,
-    			'numPedidosRealizados' => $numPedidosRealizados
+    			'numPedidosRealizados' => $numPedidosRealizados,
+                'productosCantidad' => $productosCantidad
     		]);
     	}
     }
