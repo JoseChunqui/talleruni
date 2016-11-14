@@ -1,6 +1,9 @@
 [Dolphin]
-Timestamp=2016,10,22,23,44,35
+SortOrder=1
+SortRole=size
+Timestamp=2016,11,7,17,2,38
 Version=3
+ViewMode=1
 
 [Settings]
 HiddenFilesShown=true

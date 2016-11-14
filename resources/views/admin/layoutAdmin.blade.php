@@ -41,8 +41,8 @@
 			    	DATA</a>
 			    	<ul class="dropdown-menu">
 			    	  <li><a href="/admin/actualizarIngr">INGREDIENTES</a></li>
-				  	  <li><a href="/admin/actualizarProducto">PRODUCTOS</a></li>
-				  	  <li><a href="/admin/actualizarCombo">COMBOS</a></li>
+				  	  <li><a href="/admin/actualizarProdu">PRODUCTOS</a></li>
+				  	  <li><a href="/admin/actualizarComb">COMBOS</a></li>
 				  	  <li><a href="#">OFERTA</a></li>
 			  		</ul>
 				</li>

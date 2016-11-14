@@ -5,15 +5,16 @@ $(document).ready(function(){
     	ClearCookie();
     });
 	$("#butModalCrear").click(function(){
-		ld = new FormData(document.getElementById("formCreateIng"));
+		ld = new FormData(document.getElementById("formCreateComb"));
 		$.ajax({
-			url: '/insertIng',
+			url: '/insertComb',
 			type: 'POST',
 			data: ld,
 			processData: false,
       		contentType: false,
 			success: function(data,status){
-				$(location).attr('href','admin/actualizarIngr/');
+				alert(data);
+				$(location).attr('href','admin/actualizarComb/');
 			},
 			error: function(msg){
 				alert("error");
@@ -38,24 +39,25 @@ $(document).ready(function(){
 			}
 		});
 	});
-	$("#butformUpdIng").click(function(){
-		ld = new FormData(document.getElementById("formUpdIng"));
+	$("#butformUpdComb").click(function(){
+		ld = new FormData(document.getElementById("formUpdComb"));
 		$.ajax({
-			url: $("#formUpdIng").attr('url'),
+			url: $("#formUpdComb").attr('url'),
 			type: 'POST',
 			data: ld,
 			processData: false,
       		contentType: false,
 			success: function(data,status){
-				$(location).attr('href','admin/actualizarIngr/');
+				alert(data);
+				$(location).attr('href','admin/actualizarComb/');
 			},
 			error: function(msg){
 				
-				if(msg.responseJSON.precioIngr != null){
-				$("#precioAlertMod").html("<br><div class='alert alert-danger' role='alert'>"+msg.responseJSON.precioIngr+"</div>");
+				if(msg.responseJSON.precioCombo != null){
+				$("#precioAlertMod").html("<br><div class='alert alert-danger' role='alert'>"+msg.responseJSON.precioCombo+"</div>");
 				}else{$("#precioAlertMod").html("");}
-				if(msg.responseJSON.descripcionIngr != null){
-				$("#descripcionAlertMod").html("<br><div class='alert alert-danger' role='alert'>"+msg.responseJSON.descripcionIngr+"</div>");
+				if(msg.responseJSON.descripcionCombo != null){
+				$("#descripcionAlertMod").html("<br><div class='alert alert-danger' role='alert'>"+msg.responseJSON.descripcionCombo+"</div>");
 				}else{$("#descripcionAlertMod").html("");}
 				if(msg.responseJSON.descripcionImagen != null){
 				$("#descripcionImagenAlertMod").html("<br><div class='alert alert-danger' role='alert'>"+msg.responseJSON.descripcionImagen+"</div>");
@@ -69,33 +71,35 @@ function showList(){
 	$.get('/showList');
 }
 function deleteing(id,nombre){
-	$.get("/deleteIng/"+id+"/"+nombre,function(data,status){
+	$.get("/deleteComb/"+id+"/"+nombre,function(data,status){
 		alert(data);
-		$(location).attr('href','admin/actualizarIngr/');
+		$(location).attr('href','admin/actualizarComb/');
 	});
 }
 function showdetail(id){
-	$("#idIngr").val(id);
-	$("#formUpdIng").attr("url","/updIng/"+id);
-	$.get("/showdetailIng/"+id , function($response , status){
+	$("#idCombo").val(id);
+	$("#formUpdComb").attr("url","/updComb/"+id);
+	$.get("/showdetailComb/"+id , function($response , status){
 		//Formulario estatico
-		$("#nombreIng").text($response.nombreIngrediente);
-		$("#precioIng").text($response.precionUnitario);
-		$("#descripcionIng").text($response.descripcion);
-		$("#estadoIng").text($response.estado);
-
-		$("#imagenIng").attr('src','/Imagenes/Ingredientes/'+$response.nombreImagen);
-		$("#imagenIng").attr('alt',$response.nombreImagen);
-		$("#nombreImaIng").text($response.nombreIngrediente);
-		$("#desImagenIng").text($response.descripcionImagen);
+		$("#nombreComb").text($response.nombreCombo);
+		$("#precioComb").text($response.precioUnitario);
+		$("#descripcionComb").text($response.descripcion);
+		$("#estadoComb").text($response.estado);
+		$("#fInicio").text($response.fInicio.split(" ")[0]);
+		$("#fFin").text($response.fFin.split(" ")[0]);
+		$("#imagenComb").attr('src','/Imagenes/Combos/'+$response.nombreImagen);
+		$("#imagenComb").attr('alt',$response.nombreImagen);
+		$("#nombreImaComb").text($response.nombreCombo);
+		$("#desImagenComb").text($response.descripcionImagen);
 		//Formulario de modificacion
-		$("#nombreIngr").val($response.nombreIngrediente);
-		$("#nombreIngr").val($response.nombreIngrediente);
-		$("#precioIngr").val($response.precionUnitario);
-		$("#descripcionIngr").text($response.descripcion);
-		$("#estadoIngr").val($response.estado);
-		$("#desImaIngr").text($response.descripcionImagen);
-		$("#butDeleteIng").attr("onclick","deleteing('"+id+"','"+$response.nombreImagen+"')");
+		$("#nCombo").val($response.nombreCombo);
+		$("#pCombo").val($response.precioUnitario);
+		$("#dCombo").text($response.descripcion);
+		$("#eCombo").val($response.estado);
+		$("#fInicioCombo").val($response.fInicio.split(" ")[0]);
+		$("#fFinCombo").val($response.fFin.split(" ")[0]);
+		$("#dICombo").text($response.descripcionImagen);
+		$("#butDeleteComb").attr("onclick","deleteing('"+id+"','"+$response.nombreImagen+"')");
 		//
 		$("#modalLista").modal('hide');
 		$("#alert0").hide();
@@ -103,11 +107,13 @@ function showdetail(id){
 	});
 }
 function search(){
-	var valueId = $("#searchIng").val();
-	$(location).attr('href','/admin/actualizarIngr/'+valueId);
+	var valueId = $("#searchComb").val();
+	$(location).attr('href','/admin/actualizarComb/'+valueId);
 }
 function setCookie(cname,cvalue) {
 	$("#modallista"+cvalue).remove();
+	alert(cname);
+	alert(cvalue);
     document.cookie = cname +"="+cvalue;
 }
 function getCookie(cname) {
@@ -130,7 +136,7 @@ function deleteAll(){
         	value2.push($name);
         }
     }
-    $.get("/deleteAllIng/",{'id[]':value1,'nombreImagen[]': value2},function(data,status){
+    $.get("/deleteAllComb/",{'id[]':value1,'nombreImagen[]': value2},function(data,status){
     	alert(data);
     });
     ClearCookie();

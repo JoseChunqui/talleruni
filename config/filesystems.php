@@ -42,9 +42,20 @@ return [
     */
 
     'disks' => [
-        'storageApp'=>[
+        'storeIng'=>[
             'driver'=>'local',
-            'root'=>public_path('Imagenes'),
+            'root'=>public_path('Imagenes/Ingredientes'),
+            'visibility' => 'public',
+        ],
+        'storeProd'=>[
+            'driver'=>'local',
+            'root'=>public_path('Imagenes/productos/sandwichs'),
+            'visibility' => 'public',
+        ],
+        'storageComb'=>[
+            'driver'=>'local',
+            'root'=>public_path('Imagenes/Combos'),
+            'visibility' => 'public',
         ],
         'local' => [
             'driver' => 'local',
